@@ -5,15 +5,14 @@ function duplicateCount(text){
 	// The prop name represents the unique character
 	text.split('').forEach( c => {
 		c = c.toLowerCase();
- 		numbers[c] ?  numbers[c] += 1 : numbers[c]  = 1;
+ 		if (numbers[c]) {
+			if (numbers[c] === 1) { count++};
+			numbers[c] += 1;
+		} else {
+			 numbers[c]  = 1;
+		}
 	});
 
-	// Iterate over the object's properties and count duplicates (value -> 1) 
-	for (p in numbers) {
-		if (numbers[p] > 1) {
-			count++;
-		}
-	}
 	return count;
 }
 
